@@ -1,0 +1,5 @@
+---
+:concurrency: 2
+:queues:
+  - gestion_cars_development_default
+  - gestion_cars_development_mailers
