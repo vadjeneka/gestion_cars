@@ -1,0 +1,17 @@
+<%# <h1>Users#show</h1>
+<p>Find me in app/views/users/show.html.erb</p> %>
+<div style="display: flex; flex-wrap:wrap; align-items:start; justify-content:center">
+  <p style="width:100%; margin-bottom:5px; display:flex; justify-content:center">
+    <button style=" background:#FF5154; padding:7px 35px; outline:none; border:none">
+    <%= link_to 'Back', :back, style:"text-decoration:none;color:#fff" %>
+    </button>
+  </p>
+  <p style="width:100%; margin-bottom:5px; display:flex; justify-content:center; text-transform:uppercase"> <b>Your information</b> <p>
+  <p style="width:100%; margin-bottom:5px; display:flex; justify-content:center">Prenom: <%= @inscription.prenom %> </p>
+  <p style="width:100%; margin-bottom:5px; display:flex; justify-content:center">Nom: <%= @inscription.nom %> </p>
+  <p style="width:100%; margin-bottom:5px; display:flex; justify-content:center">Classe: <%= @inscription.classe %> </p>
+  <p style="width:100%; margin-bottom:5px; display:flex; justify-content:center">Matricule: <%= @inscription.matricule %> </p>
+  <p style="width:100%; margin-bottom:5px; display:flex; justify-content:center">Mois: <%= @inscription.mois %> </p>
+  <p style="width:100%; margin-bottom:5px; display:flex; justify-content:center">Montant: <%= @inscription.montant %> </p>
+  <p style="width:100%; margin-bottom:5px; display:flex; justify-content:center">Numero Parent: <%= @inscription.num_parent %> </p>
+</div>

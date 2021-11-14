@@ -1,0 +1,11 @@
+<div style='width:100%; display:flex; justify-content:center'>
+  <div >
+    <p style='font-weight:bold; background:#171B27; color:#fff; padding:10px 0; display:flex; justify-content:space-between; width:100%;'>
+      <%= link_to 'Back', users_path, style:"text-decoration:none;color:#fff;width:40%; padding:0 5px" %>
+      <span style='width:60%'>Modifie tes Informations Ici ! </span>
+    </p>
+    <div style='width:100%; text-align:center'>
+      <%= render partial: "form", locals: {user: @user}%>
+    </div>
+  </div>
+</div>

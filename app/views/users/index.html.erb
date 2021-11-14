@@ -1,0 +1,201 @@
+<%# <h1>Users#index</h1>
+<p>Find me in app/views/users/index.html.erb</p> %>
+<style>
+  .container{
+    width: 100%;
+    height: 100vh;
+    background-color:#eee;
+    display: flex;
+    overflow: hidden;
+    position:relative;
+  }
+  .onglet{
+    width: 25%;
+    height:100%;
+    overflow: hidden;
+    position:relative;
+  }
+  .img_tag{
+    object-fit: cover;
+    height:100%;
+    width: 100%
+  }
+  .div_onglet{
+    background:rgb(30, 61, 153,0.8);
+    background-opacity:0.1;
+    height:100%;
+    width:100%;
+    position:absolute;
+  }
+  .dashboard{
+    background:#fafafa;
+    height:100%;
+    width:75%;
+    overflow: hidden;
+    position:relative;
+  }
+  .p_manager{
+    margin:15% 0% 0% 3%;
+    width:100%;
+    text-align:left;
+    color:#fff;
+    font-size:2.5rem;
+    font-family:poppins
+  }
+  .div_admin{
+    margin-top:5%;
+    padding:3%;
+    width:100%;
+  }
+  .p_admin{
+    width:100%;
+    color:#fff;
+    font-size:1.5rem;
+    font-family:poppins
+  }
+  .btn_add{
+    padding:10px 30px;
+    color:#335CD7;
+    background:#fff;
+    text-decoration:none;
+    border:none;
+    border-radius:3px;
+  }
+  .dashboard-head{
+    width:100%;
+    margin:0%;
+    padding:2%;
+    background:#fff;
+    box-shadow: 0px 0px 20px -14px rgba(0,0,0,0.63);
+  }
+  .p_dash{
+    font-size:3rem;
+    color:#335CD7;
+    margin:0%;
+  }
+  .dashboard-div{
+    background:#f5f5f5;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    height:50px;
+    width:96%;
+  }
+  .dash_research{
+    width:90%;
+    border:none;
+    background:transparent;
+    padding:8px 5px;
+    margin:2% 0;
+    outline:none;
+  }
+  .search-icon{
+    font-size:20px;
+    width:10%;
+    text-align:center;
+    color:#335CD7;
+    cursor:pointer;
+  }
+  table{
+    width:96%;
+    margin:1% 2%
+  }
+  thead{
+    background:white;
+    box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.21);
+    border:none;
+  }
+  th{
+    border:none
+  }
+  thead tr td{
+    font-weight:500;
+    padding: 10px 5px
+  }
+  tbody tr td{
+    background:white;
+    border:none;
+    padding: 8px 5px;
+    font-size:0.8rem;
+  }
+  .icon-show{
+    font-size:20px;
+    text-align:center;
+    color:#BD5A0F;
+    cursor:pointer;
+    margin:0 2%
+  }
+  .icon-edit{
+    font-size:20px;
+    text-align:center;
+    color:#3BCE4C;
+    cursor:pointer;
+    margin:0 2%
+  }
+  .icon-remove{
+    font-size:20px;
+    text-align:center;
+    color:#E11444;
+    cursor:pointer;
+    margin:0 2%
+  }
+  a{
+    text-decoration:none;
+  }
+</style>
+<div class="container">
+  <div class="onglet">
+    <div class="div_onglet">
+      <p class="p_manager">Manager</p>
+      <div class="div_admin">
+        <p class="p_admin">Administration</p>
+        <%= link_to 'Create new user', new_user_path, class:'btn_add' %>
+      </div>
+      <div class="div_admin">
+        <%= link_to 'Inscription', new_user_inscription_path(@current_user.id), class:'btn_add' %>
+      </div>
+    </div>
+    <%= image_tag('image_processing20200110-10000-1wjee9l.png', class:'img_tag' ) %>
+  </div>
+  <div class="dashboard">
+    <div class="dashboard-head">
+      <p class="p_dash">Dashboard</p>
+      <div class="dashboard-div">
+        <input type="text" placeholder="Look for someone" class="dash_research">
+        <i class="fad fa-search search-icon"></i>
+      </div>
+    </div>
+  <table>
+    <thead>
+      <tr>
+      <td>Prenom </td>
+      <td>Nom</td>
+      <td>Email</td>
+      <td>Telephone</td>
+      <td>Action</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.prenom %></td>
+          <td><%= user.nom %></td>
+          <td><%= user.email %></td>
+          <td><%= user.telephone %></td>
+          <td>
+            <a href="<%=user_path(user.id) %>">
+              <i class="fad fa-eye icon-show"></i>
+            </a>
+            <a href="<%=edit_user_path(user.id) %>">
+              <i class="fad fa-pen icon-edit"></i>
+            </a>
+            <a href="<%= user_path(user.id) %>", data-method="delete", data-confirm="Are you sure?">
+              <i class="fad fa-times icon-remove"></i>
+            </a>
+          </td>
+          </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
+</div>

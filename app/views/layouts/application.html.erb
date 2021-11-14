@@ -1,16 +1,82 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>GestionCars</title>
+    <title>Jokou</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <style>
+      *{
+        font-family:poppins
+      }
+      .type-alert {
+        background:#F8503A;
+        width:25%;
+        height:60px;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        background-opacity:0.8;
+        color:#fff
+      }
+      .type-success {
+        background:#579E60;
+        width:25%;
+        height:60px;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        background-opacity:0.8;
+        color:#fff
+      }
+      .type-notice{
+        background:#4190C8;
+        width:25%;
+        height:60px;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        background-opacity:0.8;
+        color:#fff
+      }
+      .a-log{
+        position: absolute; 
+        left:0; 
+        bottom:0; 
+        margin-left:2%; 
+        z-index:3; 
+        margin-bottom:3%;
+        text-decoration:none;
+        color:#fff;
+        background:#E02215;
+        padding:5px 20px;
+      }
+    </style>
   </head>
 
-  <body>
-    <%= yield %>
+  <body style='margin:0'>
+    <% unless @current_user==nil %>
+      <a href="<%= logout_path %>", data-method="delete", data-confirm="Are you sure?" class="a-log">
+        Log out
+        <i class="fad fa-minus-circle"></i>
+      </a>
+    <% end %>
+    <div style='width:100%; display:flex; justify-content:center; position:absolute; top:0; margin-top:4%; z-index:2'>
+      <% flash.each do |type, msg| %>
+        <div class="type-<%=type%>">
+          <%= msg %>
+        </div>
+      <% end %>
+    </div>
+    <%= yield%>
   </body>
 </html>

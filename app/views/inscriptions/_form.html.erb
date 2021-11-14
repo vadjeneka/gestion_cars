@@ -1,0 +1,50 @@
+<%= form_with url: new_user_inscription_path do |form| %>
+  <div style='width:48%; display:inline-block;margin:2% 0;'>
+    <%= form.text_field :nom, style:'width:95%;padding:12px 5px;border:none;background:#f5f5f5;border-radius:3px', placeholder:'nom' %>
+    <% if inscription.errors[:nom] %>
+      <span style='color: red'><%= inscription.errors[:nom][0] %></span>
+    <% end %>
+  </div>
+  <div style='width:48%; display:inline-block;margin:2% 0;'>
+    <%= form.text_field :prenom, style:'width:95%;padding:12px 5px;border:none;background:#f5f5f5;border-radius:3px', placeholder:'prenom' %>
+    <% if inscription.errors[:prenom] %>
+      <span style='color: red'><%= inscription.errors[:prenom][0] %></span>
+    <% end %>
+  </div>
+  <div style='width:48%; display:inline-block;margin:2% 0;'>
+    <%= form.text_field :classe, style:'width:95%;padding:12px 5px;border:none;background:#f5f5f5;border-radius:3px', placeholder:'5e3' %>
+    <% if inscription.errors[:classe] %>
+      <span style='color: red'><%= inscription.errors[:classe][0] %></span>
+    <% end %>
+  </div>
+  <div style='width:48%; display:inline-block;margin:2% 0;'>
+    <%= form.text_field :matricule, style:'width:95%;padding:12px 5px;border:none;background:#f5f5f5;border-radius:3px', placeholder:'10036513M' %>
+    <% if inscription.errors[:matricule] %>
+      <span style='color: red'><%= inscription.errors[:matricule][0] %></span>
+    <% end %>
+  </div>
+  
+  <div style='width:48%; display:inline-block;margin:2% 0;'>
+    <%= form.text_field :num_parent, style:'width:95%;padding:12px 5px;border:none;background:#f5f5f5;border-radius:3px', placeholder:'+225 0707157601' %>
+    <% if inscription.errors[:num_parent] %>
+      <span style='color: red'><%= inscription.errors[:num_parent][0] %></span>
+    <% end %>
+  </div>
+  <div style='width:48%; display:inline-block;margin:2% 0;'>
+    <%= form.text_field :montant, style:'width:95%;padding:12px 5px;border:none;background:#f5f5f5;border-radius:3px', placeholder:'15000fcfa' %>
+    <% if inscription.errors[:montant] %>
+      <span style='color: red'><%= inscription.errors[:montant][0] %></span>
+    <% end %>
+  </div>
+  <div style='width:48%; display:inline-block;margin:2% 0;'>
+    <%= form.text_field :mois, style:'width:95%;padding:12px 5px;border:none;background:#f5f5f5;border-radius:3px', placeholder:'Decembre' %>
+    <% if inscription.errors[:mois] %>
+      <span style='color: red'><%= inscription.errors[:mois][0] %></span>
+    <% end %>
+  </div>
+  <% if inscription.persisted? %>
+    <%= form.submit 'Modifié', style:"text-decoration:none;color:#fff;width:40%; padding:10px 0px; margin-top:2%; background:#4B6DE7; border:none;" %>
+  <%else %>
+    <%= form.submit 'Inscrire', style:"width:50%; margin:4% 0; padding:12px 0; border:none; background:#A45328; color:#FFFFFF;border-radius:3px;" %>
+  <%end%>
+<% end %>

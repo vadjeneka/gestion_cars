@@ -1,0 +1,48 @@
+<%= form_with model: user do |form| %>
+  <div style='width:48%; display:inline-block;margin:2% 0;'>
+    <%= form.text_field :prenom, style:'width:95%;padding:12px 5px;border:none;background:#f5f5f5;border-radius:3px', placeholder:'prenom' %>
+    <% if user.errors[:prenom] %>
+      <span style='color: red'><%= user.errors[:prenom][0] %></span>
+    <% end %>
+  </div>
+  <div style='width:48%; display:inline-block;margin:2% 0;'>
+    <%= form.text_field :nom, style:'width:95%;padding:12px 5px;border:none;background:#f5f5f5;border-radius:3px', placeholder:'Nom' %>
+    <% if user.errors[:nom] %>
+      <span style='color: red'><%= user.errors[:nom][0] %></span>
+    <% end %>
+  </div>
+  <div style='width:48%; display:inline-block;margin:2% 0;'>
+    <%= form.email_field :email, style:'width:95%;padding:12px 5px;border:none;background:#f5f5f5;border-radius:3px', placeholder:'noreply@example.com' %>
+    <% if user.errors[:email] %>
+      <span style='color: red'><%= user.errors[:email][0] %></span>
+    <% end %>
+  </div>
+  <div style='width:48%; display:inline-block;margin:2% 0;'>
+    <%= form.text_field :telephone, style:'width:95%;padding:12px 5px;border:none;background:#f5f5f5;border-radius:3px', placeholder:'+225 0000000000' %>
+    <% if user.errors[:telephone] %>
+      <span style='color: red'><%= user.errors[:telephone][0] %></span>
+    <% end %>
+  </div>
+  
+  <div style='width:48%; display:inline-block;margin:2% 0;'>
+    <%= form.password_field :password, style:'width:95%;padding:12px 5px;border:none;background:#f5f5f5;border-radius:3px', placeholder:'Password' %>
+    <% if user.errors[:password] %>
+      <span style='color: red'><%= user.errors[:password][0] %></span>
+    <% end %>
+  </div>
+  <div style='width:48%; display:inline-block;margin:2% 0;'>
+    <%= form.password_field :password_confirmation, style:'width:95%;padding:12px 5px;border:none;background:#f5f5f5;border-radius:3px', placeholder:'Confirm password' %>
+    <% if user.errors[:password_confirmation] %>
+      <span style='color: red'><%= user.errors[:password_confirmation][0] %></span>
+    <% end %>
+  </div>
+  <% if user.persisted? %>
+    <%= form.submit 'Update', style:"text-decoration:none;color:#fff;width:40%; padding:10px 0px; margin-top:2%; background:#4B6DE7; border:none;" %>
+  <%else %>
+    <%= form.submit 'S inscrire', style:"width:50%; margin:4% 0; padding:12px 0; border:none; background:#A45328; color:#FFFFFF;border-radius:3px;" %>
+    <div>
+      <span>Vous avez pas de compte?</span>
+      <%= link_to 'Log here', login_path, style:'text-decoration:none; color:#773203;' %>
+    </div>
+  <%end%>
+<% end %>

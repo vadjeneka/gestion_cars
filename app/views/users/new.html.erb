@@ -1,0 +1,26 @@
+
+<div style='height:100vh; width:100vw; background:white;margin:0; display:flex'>
+  <div style='display:flex; width:45%; height:100%; background:white; justify-content:center; align-items:start'>
+    <div style='width:85%; height:90%; text-align:center'>
+      <p style="width:100%; margin:15% 0 0 0; display:flex; justify-content:center; font-size:3rem;font-weight:bold">
+        ROSIERS
+      </p>
+      <p style="width:100%; margin-bottom:20%; display:flex; justify-content:center; font-size:1rem;">
+        Bienvenue Aux Rosiers!
+      </p>
+      <%= render partial: "form", locals: {user: @user}%>
+    </div>
+  </div>
+
+  <div style='display:flex;background:#EAE0D0; width:55%; height:100%; overflow:hidden; position:relative;'>
+    <%= image_tag ("image_processing20200218-6952-an95u4.png"), style:"object-fit:scale-down; width:100%" %>
+    <div style="position:absolute; width:100%; height:100%;display:flex;justify-content:center; flex-wrap:wrap; align-content: space-around;">
+      <p style="width:100%;display:flex;justify-content:center;margin-top:-10px;font-weight:bold;font-size:3rem;">
+        ROSIERS
+      </p>
+      <p style="width:70%;display:flex;justify-content:center;margin-top:20%; text-align:center">
+        lorem ipsum dolor sit amet, consectet lorem lorem lorem lorem, sed diam nonum vulputate mass lorem urna et justo
+      </p>
+    </div>
+  </div>
+</div>
