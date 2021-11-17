@@ -10,22 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_14_125233) do
+ActiveRecord::Schema.define(version: 2021_11_16_215304) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
-  create_table "inscriptions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.integer "montant"
-    t.string "mois"
-    t.string "nom"
-    t.string "prenom"
-    t.string "classe"
-    t.string "matricule"
-    t.string "num_parent"
+  create_table "cars", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "immatriculation"
+    t.string "couleur"
+    t.integer "nbre_place"
+    t.uuid "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_cars_on_user_id"
+  end
+
+  create_table "inscriptions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "prenom"
+    t.string "nom"
+    t.string "matricule"
+    t.string "classe"
+    t.integer "num_parent"
+    t.integer "montant"
+    t.string "mois"
+    t.uuid "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_inscriptions_on_user_id"
   end
 
   create_table "sessions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -44,4 +56,6 @@ ActiveRecord::Schema.define(version: 2021_11_14_125233) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "cars", "users"
+  add_foreign_key "inscriptions", "users"
 end

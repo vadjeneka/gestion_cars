@@ -1,213 +1,111 @@
 
-<style>
-  .container{
-    width: 100%;
-    height: 100vh;
-    background-color:#eee;
-    display: flex;
-    overflow: hidden;
-    position:relative;
-  }
-  .onglet{
-    width: 25%;
-    height:100%;
-    overflow: hidden;
-    position:relative;
-  }
-  .img_tag{
-    object-fit: cover;
-    height:100%;
-    width: 100%
-  }
-  .div_onglet{
-    background:rgb(30, 61, 153,0.8);
-    opacity:0.1;
-    height:100%;
-    width:100%;
-    position:absolute;
-  }
-  .dashboard{
-    background:#fafafa;
-    height:100%;
-    width:75%;
-    overflow: hidden;
-    position:relative;
-  }
-  .p_manager{
-    margin:15% 0% 0% 3%;
-    width:100%;
-    text-align:left;
-    color:#fff;
-    font-size:2.5rem;
-    font-family:poppins
-  }
-  .div_admin{
-    margin-top:5%;
-    padding:3%;
-    width:100%;
-  }
-  .p_admin{
-    width:100%;
-    color:#fff;
-    font-size:1.5rem;
-    font-family:poppins
-  }
-  .btn_add{
-    padding:10px 30px;
-    color:#335CD7;
-    background:#fff;
-    text-decoration:none;
-    border:none;
-    border-radius:3px;
-  }
-  .dashboard-head{
-    width:100%;
-    margin:0%;
-    padding:2%;
-    background:#fff;
-    box-shadow: 0px 0px 20px -14px rgba(0,0,0,0.63);
-  }
-  .p_dash{
-    font-size:3rem;
-    color:#335CD7;
-    margin:0%;
-  }
-  .dashboard-div{
-    background:#f5f5f5;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    height:50px;
-    width:96%;
-  }
-  .dash_research{
-    width:90%;
-    border:none;
-    background:transparent;
-    padding:8px 5px;
-    margin:2% 0;
-    outline:none;
-  }
-  .search-icon{
-    font-size:20px;
-    width:10%;
-    text-align:center;
-    color:#335CD7;
-    cursor:pointer;
-  }
-  table{
-    width:96%;
-    margin:1% 2%
-  }
-  thead{
-    background:white;
-    box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.21);
-    border:none;
-  }
-  th{
-    border:none
-  }
-  thead tr td{
-    font-weight:500;
-    padding: 10px 5px
-  }
-  tbody tr td{
-    background:white;
-    border:none;
-    padding: 8px 5px;
-    font-size:0.8rem;
-  }
-  .icon-show{
-    font-size:20px;
-    text-align:center;
-    color:#BD5A0F;
-    cursor:pointer;
-    margin:0 2%
-  }
-  .icon-edit{
-    font-size:20px;
-    text-align:center;
-    color:#3BCE4C;
-    cursor:pointer;
-    margin:0 2%
-  }
-  .icon-remove{
-    font-size:20px;
-    text-align:center;
-    color:#E11444;
-    cursor:pointer;
-    margin:0 2%
-  }
-  a{
-    text-decoration:none;
-  }
-</style>
-<div class="container">
-  <div class="onglet">
-    <div class="div_onglet">
-      <p class="p_manager">Manager</p>
-      <div class="div_admin">
-        <p class="p_admin">Administration</p>
-        <%= link_to 'Inscription', new_user_inscription_path(@current_user.id), class:'btn_add' %>
-      </div>
-      <div class="div_admin">
-        <%= link_to 'Ajouter Cars', new_user_inscription_path, class:'btn_add' %>
-      </div>
-      <div class="div_admin">
-        <%= link_to 'Ajouter Chauffeur', new_user_inscription_path, class:'btn_add' %>
-      </div>
-      <div class="div_admin">
-        <%= link_to 'Créer un Trajet', new_user_inscription_path, class:'btn_add' %>
-      </div>
-      <div class="div_admin">
-        <%= link_to 'Enregistrer une Dépense', new_user_inscription_path, class:'btn_add' %>
-      </div>
-    </div>
-    <%= image_tag('image_processing20200110-10000-1wjee9l.png', class:'img_tag' ) %>
+<%= render partial:'header', locals:{inscription: @inscription}%>
+
+<main class="flex w-full h-screen">
+  <%= render partial:'aside', locals:{inscription: @inscription}%>
+<section class="py-1 bg-blueGray-50 w-full">
+  <div class="relative w-full px-4 max-w-full flex-grow flex-1 text-right mt-16">
+    <button class="flex justify-center text-2xl bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none ml-96 mb-1 ease-linear transition-all duration-150" type="button">
+      <%= link_to 'Faire une Inscription', new_user_inscription_path(current_user)%>
+    </button>
   </div>
-  <div class="dashboard">
-    <div class="dashboard-head">
-      <p class="p_dash">Dashboard</p>
-      <div class="dashboard-div">
-        <input type="text" placeholder="Look for someone" class="dash_research">
-        <i class="fad fa-search search-icon"></i>
+<div class="w-full px-4 mx-auto mt-24">
+  <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded ">
+    <div class="rounded-t mb-0 px-4 py-3 border-0">
+      <div class="flex flex-wrap items-center">
+        <div class="relative w-full px-4 max-w-full flex-grow flex-1">
+          <h3 class="font-semibold text-base text-blueGray-700">Liste des Élèves inscrits</h3>
+        </div>
+        <div class="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
+          <button class="bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">IMPRIMER <i class="fas fa-print"></i></button>
+        </div>
       </div>
     </div>
-  <table>
-    <thead>
-      <tr>
-      <td>Nom </td>
-      <td>Prenom</td>
-      <td>Classe</td>
-      <td>Matricule</td>
-      <td>Mois</td>
-      <td>Numero Parent</td>
-      <td>Action</td>
-      </tr>
-    </thead>
-    <tbody>
-      <% @inscriptions.each do |inscription| %>
-        <tr>
-          <td><%= inscription.nom %></td>
-          <td><%= inscription.prenom %></td>
-          <td><%= inscription.classe %></td>
-          <td><%= inscription.matricule %></td>
-          <td><%= inscription.mois %></td>
-          <td><%= inscription.num_parent %></td>
-          <td>
-            <a href="<%=user_inscription_path(inscription.id) %>">
-              <i class="fad fa-eye icon-show"></i>
-            </a>
-            <a href="<%=edit_user_inscription_path(inscription.id) %>">
-              <i class="fad fa-pen icon-edit"></i>
-            </a>
-            <a href="<%= user_inscription_path(inscription.id) %>", data-method="delete", data-confirm="Are you sure?">
-              <i class="fad fa-times icon-remove"></i>
-            </a>
-          </td>
+
+    <div class="block w-full overflow-x-auto">
+      <table class="items-center bg-transparent w-full border-collapse ">
+        <thead>
+          <tr>
+            <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+              Prenom
+            </th>
+          <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+            Nom
+          </th>
+          <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+            Classe
+          </th>
+          <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+            Matricule
+          </th>
+          <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+            Numero Parent
+          </th>
+          <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+            Montant
+          </th>
+          <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+            Mois
+          </th>
+          <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+            Actions
+          </th>
           </tr>
-      <% end %>
-    </tbody>
-  </table>
+        </thead>
+
+        <tbody>
+          <% @inscriptions.each do |inscription| %>
+            <tr>
+              <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700 ">
+                <%= inscription.prenom %>
+              </th>
+              <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
+                <%= inscription.nom %>
+              </td>
+              <td class="border-t-0 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                <%= inscription.classe %>
+              </td>
+              <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                <!-- <i class="fas fa-arrow-up text-emerald-500 mr-4"></i> -->
+                <%= inscription.matricule %>
+              </td>
+              <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                <!-- <i class="fas fa-arrow-up text-emerald-500 mr-4"></i> -->
+                <%= inscription.num_parent %>
+              </td>
+              <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                <!-- <i class="fas fa-arrow-up text-emerald-500 mr-4"></i> -->
+                <%= inscription.montant %>
+              </td>
+              <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                <!-- <i class="fas fa-arrow-up text-emerald-500 mr-4"></i> -->
+                <%= inscription.mois %>
+              </td>
+              <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                <!-- <i class="fas fa-arrow-up text-emerald-500 mr-4"></i> -->
+                <a href="<%= user_inscription_path(@current_user, inscription) %>
+                ">
+                  <i class="far fa-eye text-emerald-500 mr-4"></i> 
+                </a>
+                <a href="<%= edit_user_inscription_path(@current_user, inscription) %>"
+                  >
+                    <i class="fas fa-edit text-blue-500 mr-4"></i> 
+                </a>
+
+                <a href="<%= user_inscription_path(@current_user, inscription.id)%>", data-method="delete" data-confirm="Are you sure?">
+                    <i class="fas fa-trash-alt text-red-500"></i> 
+                </a>            
+              </td>
+          </tr>
+          <% end %>
+          
+        </tbody>
+
+      </table>
+    </div>
   </div>
 </div>
+
+</section>
+
+</main>
