@@ -19,7 +19,9 @@
         <div class="bg-gray-900 text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">
           <%= link_to 'Create new user', new_user_path %>
         </div>
-        <div class="bg-gray-900 text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">Ajouter un Trajet</div>
+        <div class="bg-gray-900 text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">
+          <%= link_to 'Ajouter un trajet', new_user_trajet_path(current_user)%>
+        </div>
         <div class="bg-gray-700 text-blue-300 p-2 rounded mt-2 cursor-pointer">Ajouter un Car</div>
         <!-- <div class="bg-gray-900 flex justify-between items-center text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">
           <span>Reports</span>

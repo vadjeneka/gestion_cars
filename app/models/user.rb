@@ -10,4 +10,5 @@ class User < ApplicationRecord
   has_secure_password
   has_many :inscription
   has_many :cars
+  has_many :trajets
 end

@@ -3,6 +3,9 @@
       <div class="text-sm">
         <div class="bg-gray-900 text-white p-5 rounded cursor-pointer">Dashboard Gestion des Cars</div>
         <div class="bg-gray-900 text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">
+          <%= link_to 'Create new user', new_user_path %>
+        </div>
+        <div class="bg-gray-900 text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">
           <%= link_to 'Ajouter un Trajet', user_trajets_path(current_user)%>
         </div>
         <div class="bg-gray-700 text-blue-300 p-2 rounded mt-2 cursor-pointer">
@@ -13,7 +16,7 @@
           <span class="w-4 h-4 bg-blue-600 rounded-full text-white text-center font-normal text-xs">5</span>
         </div> -->
         <div class="bg-gray-900 text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">
-          <%= link_to 'Inscription', user_inscriptions_path %>
+          <%= link_to 'Inscription', user_inscriptions_path(current_user) %>
         </div>
         <div class="bg-gray-900 text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">Ajouter des dépenses</div>
         <!-- <div class="bg-gray-900 text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">Repository</div> -->
@@ -31,5 +34,6 @@
       </div>
   </div>
 </aside>
+
 <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css">
 <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
