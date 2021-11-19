@@ -7,4 +7,5 @@ class Inscription < ApplicationRecord
             :num_parent,
             :classe ,presence: true
 belongs_to :user
+belongs_to :trajet
 end

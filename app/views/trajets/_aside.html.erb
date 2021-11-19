@@ -8,7 +8,7 @@
         <div class="bg-gray-900 text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">
           <%= link_to 'Ajouter un Trajet', user_trajets_path(current_user)%>
         </div>
-        <div class="bg-gray-700 text-blue-300 p-2 rounded mt-2 cursor-pointer">
+        <div class="bg-gray-900 text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">
           <%= link_to 'Ajouter un Car', user_cars_path(current_user)%>
         </div>
         <!-- <div class="bg-gray-900 flex justify-between items-center text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">
@@ -18,8 +18,9 @@
         <div class="bg-gray-900 text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">
           <%= link_to 'Inscription', user_inscriptions_path(current_user) %>
         </div>
-        <div class="bg-gray-900 text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">Ajouter des dépenses</div>
-        <!-- <div class="bg-gray-900 text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">Repository</div> -->
+        <div class="bg-gray-900 text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">
+          <%= link_to 'Ajouter une depense', user_depenses_path(current_user) %>
+        </div>        <!-- <div class="bg-gray-900 text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">Repository</div> -->
       </div>
 
       <div class="flex p-3 text-white bg-red-500 rounded cursor-pointer text-center text-sm">

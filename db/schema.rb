@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_17_233647) do
+ActiveRecord::Schema.define(version: 2021_11_19_205340) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -24,6 +24,19 @@ ActiveRecord::Schema.define(version: 2021_11_17_233647) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_cars_on_user_id"
+  end
+
+  create_table "depenses", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "nat_depense"
+    t.text "description"
+    t.integer "montant"
+    t.date "date_depense"
+    t.uuid "user_id", null: false
+    t.uuid "car_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["car_id"], name: "index_depenses_on_car_id"
+    t.index ["user_id"], name: "index_depenses_on_user_id"
   end
 
   create_table "inscriptions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -65,6 +78,8 @@ ActiveRecord::Schema.define(version: 2021_11_17_233647) do
   end
 
   add_foreign_key "cars", "users"
+  add_foreign_key "depenses", "cars"
+  add_foreign_key "depenses", "users"
   add_foreign_key "inscriptions", "users"
   add_foreign_key "trajets", "users"
 end

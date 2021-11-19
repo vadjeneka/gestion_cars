@@ -11,4 +11,5 @@ class User < ApplicationRecord
   has_many :inscription
   has_many :cars
   has_many :trajets
+  has_many :depenses
 end

@@ -6,7 +6,7 @@
           <%= link_to 'Create new user', new_user_path %>
         </div>
         <div class="bg-gray-900 text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">
-          <%= link_to 'Ajouter un trajet', new_user_trajet_path(current_user)%>
+          <%= link_to 'Ajouter un Trajet', user_trajets_path(current_user)%>
         </div>
         <div class="bg-gray-900 text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">
           <%= link_to 'Ajouter un Car', user_cars_path(current_user)%>
@@ -20,7 +20,8 @@
         </div>
         <div class="bg-gray-900 text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">
           <%= link_to 'Ajouter une depense', user_depenses_path(current_user) %>
-        </div>        <!-- <div class="bg-gray-900 text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">Repository</div> -->
+        </div>
+        <!-- <div class="bg-gray-900 text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">Repository</div> -->
       </div>
 
       <div class="flex p-3 text-white bg-red-500 rounded cursor-pointer text-center text-sm">
