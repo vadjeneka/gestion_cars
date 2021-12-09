@@ -3,14 +3,15 @@
       <div class="text-sm">
         <div class="bg-gray-900 text-white p-5 rounded cursor-pointer">
           <%= link_to 'Dashboard Gestion des Cars', users_path%>
-        </div>        <!-- <div class="bg-gray-900 text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">
+        </div>
+        <!-- <div class="bg-gray-900 text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">
           <%= link_to 'Create new user', new_user_path %>
         </div> -->
         <div class="bg-gray-900 text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">
           <%= link_to 'Ajouter un Car', user_cars_path(current_user)%>
         </div>
         <div class="bg-gray-900 text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">
-          <%= link_to 'Ajouter un Trajet', user_trajets_path(current_user)%>
+          <%= link_to 'Ajouter un trajet', new_user_trajet_path(current_user)%>
         </div>
         <!-- <div class="bg-gray-900 flex justify-between items-center text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">
           <span>Reports</span>
@@ -23,7 +24,7 @@
           <%= link_to 'Ajouter un chauffeur', user_chauffeurs_path(current_user) %>
         </div>
         <div class="bg-gray-900 text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">
-          <%= link_to 'Ajouter une depense', user_depenses_path(current_user) %>
+          <%= link_to 'Ajouter une dépense', user_depenses_path(current_user) %>
         </div>
         <!-- <div class="bg-gray-900 text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">Repository</div> -->
       </div>
@@ -40,6 +41,3 @@
       </div>
   </div>
 </aside>
-
-<link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css">
-<link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">

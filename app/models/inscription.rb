@@ -5,7 +5,8 @@ class Inscription < ApplicationRecord
             :matricule,
             :mois,
             :num_parent,
+            :destination,
             :classe ,presence: true
 belongs_to :user
-belongs_to :trajet
+has_one :trajet
 end

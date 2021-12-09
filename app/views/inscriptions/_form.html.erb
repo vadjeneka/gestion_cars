@@ -1,3 +1,10 @@
+<style>
+  select{
+    width:100%;
+    padding: 0.5rem 0;
+    outline:none;
+  }
+</style>
 <%= form_with model:[current_user, inscription] do |form| %>
   <div style='width:48%; display:inline-block;margin:2% 0;'>
     <%= form.text_field :nom, style:'width:95%;padding:12px 5px;border:none;background:#f5f5f5;border-radius:3px', placeholder:'nom' %>
@@ -42,9 +49,15 @@
       <span style='color: red'><%= inscription.errors[:mois][0] %></span>
     <% end %>
   </div>
+  <div style='width:48%; display:inline-block;margin:2% 0;'>
+    <%= form.select :destination, ['yopougon maroc', 'bingerville', 'Riviera2'], class:'mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'%>
+    <% if inscription.errors[:destination] %>
+      <span style='color: red'><%= inscription.errors[:destination][0] %></span>
+    <% end %>
+  </div>
   <% if inscription.persisted? %>
-    <%= form.submit 'Modifié', style:"text-decoration:none;color:#fff;width:40%; padding:10px 0px; margin-top:2%; background:#4B6DE7; border:none;" %>
+    <%= form.submit 'Modifié', style:"text-decoration:none;color:#fff;width:40%; padding:10px 0px; margin-top:2%;  border:none;", class:'bg-indigo-600' %>
   <%else %>
-    <%= form.submit 'Inscrire', style:"width:50%; margin:4% 0; padding:12px 0; border:none; background:#A45328; color:#FFFFFF;border-radius:3px;" %>
+    <%= form.submit 'Inscrire', style:"width:50%; margin:4% 0; padding:12px 0; border:none; color:#FFFFFF;border-radius:3px;", class:'bg-indigo-600' %>
   <%end%>
 <% end %>

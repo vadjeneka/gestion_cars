@@ -17,7 +17,7 @@ class InscriptionsController < ApplicationController
   def create
     # raise params.inspect
     # @inscription = Inscription.new(inscription_params)
-    @inscription = current_user.inscription.build(inscription_params)
+    @inscription = current_user.inscriptions.build(inscription_params)
     if @inscription.save
       redirect_to user_inscriptions_path(@current_user), notice:'Inscription effectuée'
     else
@@ -56,6 +56,6 @@ class InscriptionsController < ApplicationController
 
   def inscription_params
     # raise params.inspect
-    params.require(:inscription).permit(:nom, :prenom, :classe, :matricule, :num_parent, :montant, :mois)
+    params.require(:inscription).permit(:nom, :prenom, :classe, :matricule, :num_parent, :montant, :mois, :destination)
   end
 end

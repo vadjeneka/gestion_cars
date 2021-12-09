@@ -2,7 +2,7 @@
 <main class="flex w-full h-screen">
   <%= render partial:'aside', locals:{inscription: @inscription}%>
   <section class="py-1 bg-blueGray-50 w-full ">
-    <div class="w-full px-4 mx-auto mt-24 justify-center">
+    <!-- <div class="w-full px-4 mx-auto mt-24 justify-center">
       <div style='width:85%; height:90%; text-align:center'>
         <p style="width:100%; display:flex; justify-content:center; font-size:3rem;font-weight:bold">
           FICHE D'INSCRIPTION
@@ -13,12 +13,6 @@
       </div>
       <div class="relative flex flex-col min-w-0 break-words bg-white w-1/2 mb-6 shadow-lg rounded mr-52" style="width:100%; display:flex; justify-content:center;">
         <div class="flex justify-center flex-wrap">
-          <!-- <p style="width:100%; margin-bottom:5px; display:flex; justify-content:center">
-            <button style=" background:#FF5154; padding:7px 35px; outline:none; border:none">
-            <%= link_to 'Back', :back, style:"text-decoration:none;color:#fff" %>
-            </button>
-          </p> -->
-          <!-- <p style="width:100%; margin-bottom:5px; display:flex; justify-content:center; text-transform:uppercase"> <b>Your information</b> <p> -->
             <p style="width:100%; margin-bottom:5px; display:flex; justify-content:center">Prenom: <%= @inscription.prenom %> </p>
             <p style="width:100%; margin-bottom:5px; display:flex; justify-content:center">Nom: <%= @inscription.nom %> </p>
             <p style="width:100%; margin-bottom:5px; display:flex; justify-content:center">Classe: <%= @inscription.classe %> </p>
@@ -29,6 +23,105 @@
         </div>
         
       </div>
+    </div> -->
+
+    <style>
+      .min-h{
+        min-height:35rem;
+      }
+      .h-36r{
+        height:36rem
+      }
+      </style>
+
+    <div class="flex justify-center min-h bg-gray-50 mb-2">
+      <div class="w-3/6 flex px-5">
+        <div class="w-full ">
+          <div class="w-full py-3 flex justify-between items-end">
+            <h3 class="text-base font-semibold text-gray-600">
+              FICHE D'INSCRIPTION
+            </h3>
+            <div class="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
+              <button class="bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">IMPRIMER <i class="fas fa-print"></i></button>
+            </div>
+          </div>
+          <div class="w-full h-auto p-5 justify-center items-center overflow-hidden  px-14 bg-white shadow overflow-x-hidden">
+            <div class="text-left flex w-full justify-between pb-5 pt-2 border-b border-gray-100">
+            
+              <h3 class="text-base font-semibold text-gray-600 w-3/6">Référence :</h3>
+              <div class="text-left font-medium text-black text-xl  w-2/6">
+                <%= @inscription.id[0,8] %>
+              </div>
+            </div>
+            <div class="text-left flex w-full justify-between pb-5 pt-2 border-b border-gray-100">
+            
+              <h3 class="text-base font-semibold text-gray-600 w-3/6">Date d'inscription:</h3>
+              <div class="text-left font-medium text-black text-xl  w-2/6">
+                <%= @inscription.created_at&.strftime(" %D") %>
+              </div>
+            </div>
+            <div class="text-left flex w-full justify-between pb-7 pt-2 border-b border-gray-100">
+            
+              <h3 class="text-base font-semibold text-gray-600 w-3/6">Prénom:</h3>
+              <div class="text-left font-medium text-black text-xl  w-2/6">
+                <%= @inscription.prenom %>
+              </div>
+            </div>
+            <div class="text-left flex w-full justify-between pb-7 pt-2 border-b border-gray-100">
+            
+              <h3 class="text-base font-semibold text-gray-600 w-3/6">Nom:</h3>
+              <div class="text-left font-medium text-black text-xl w-2/6">
+                <%= @inscription.nom %>
+              </div>
+            </div> 
+            <div class="text-left flex w-full justify-between pb-7 pt-2 border-b border-gray-100">
+            
+              <h3 class="text-base font-semibold text-gray-600 w-3/6">Classe:</h3>
+              <div class="text-left font-medium text-black text-xl w-2/6">
+                <%= @inscription.classe %>
+              </div>
+            </div>
+            <div class="text-left flex w-full justify-between pb-7 pt-2 border-b border-gray-100">
+            
+              <h3 class="text-base font-semibold text-gray-600 w-3/6">Matricule:</h3>
+              <div class="text-left font-medium text-black text-xl w-2/6">
+                <%= @inscription.matricule %>
+              </div>
+            </div>
+            <div class="text-left flex w-full justify-between pb-7 pt-2 border-b border-gray-100">
+            
+              <h3 class="text-base font-semibold text-gray-600 w-3/6">Numéro Parent:</h3>
+              <div class="text-left font-medium text-black text-xl w-2/6">
+                <%= @inscription.num_parent%>
+              </div>
+            </div>
+            <div class="text-left flex w-full justify-between pb-7 pt-2 border-b border-gray-100">
+            
+              <h3 class="text-base font-semibold text-gray-600 w-3/6">Montant:</h3>
+              <div class="text-left font-medium text-black text-xl w-2/6">
+                <%= @inscription.montant %> 
+              </div>
+            </div>
+            <div class="text-left flex w-full justify-between pb-7 pt-2 border-b border-gray-100">
+            
+              <h3 class="text-base font-semibold text-gray-600 w-3/6">Mois:</h3>
+              <div class="text-left font-medium text-black text-xl w-2/6">
+                <%= @inscription.mois %> 
+              </div>
+            </div>
+            <div class="text-left flex w-full justify-between pb-7 pt-2 border-b border-gray-100">
+            
+              <h3 class="text-base font-semibold text-gray-600 w-3/6">Destination:</h3>
+              <div class="text-left font-medium text-black text-xl w-2/6">
+                <%= @inscription.destination %> 
+              </div>
+            </div>
+            
+          </div>
+    
+        </div>
+      </div>
+    
     </div>
 
   </section>

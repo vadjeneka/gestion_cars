@@ -1,15 +1,22 @@
+<style>
+  select{
+    width:50%;
+    padding: 0.5rem 0;
+    outline:none;
+  }
+</style>
+<div class="w-full h-96 p-5 justify-center items-center overflow-hidden  px-14 bg-white shadow overflow-x-hidden">
 <%= form_with model: [current_user, trajet] do |form| %>
-<div class="grid grid-cols-1 table-column space-y-2 ">
+
+  <div class="grid grid-cols-1 table-column space-y-2 ">
     <div class="flex justify-center mt-2 field" >
-      <!-- <%= form.label :immatriculation, "immatriculation" %> -->
       <%= form.text_field :destination, style:'width:50%;padding:12px 5px;border:none;background:#f5f5f5;border-radius:3px;', placeholder:'destination ex: angre 7e tranche ' %>
       <% if trajet.errors[:destination] %>
         <span style='color: red'><%= trajet.errors[:destination][0] %></span>
       <% end %>
     </div>
     <div class="flex justify-center field border-rounded">
-      <!-- <%= form.label :couleur,"Couleur" %> -->
-      <%= form.select :car_id, options_from_collection_for_select(current_user.cars, "id", "immatriculation"),style:'width:100%;padding:12px 5px;border:none;background:#f5f5f5;border-radius:5px' %>
+      <%= form.select :car_id, options_from_collection_for_select(current_user.cars, "id", "immatriculation"),class:'mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm' %>
       <% if trajet.errors[:car] %>
         <span style='color: red'><%= trajet.errors[:car][0] %></span>
       <% end %>
@@ -19,9 +26,9 @@
       <% if trajet.persisted? %>
         <%= form.submit 'Modifié', style:"text-decoration:none;color:#fff;width:50%; padding:10px 0px; margin-top:2%; background:#4B6DE7; border:none;" %>
       <%else %>
-        <%= form.submit 'Ajouter', style:"width:50%; margin:4% 0; padding:12px 0; border:none; background:#A45328; color:#FFFFFF;border-radius:3px;" %>
+        <%= form.submit 'Ajouter', style:"width:50%; margin:4% 0; padding:12px 0; border:none; color:#FFFFFF;border-radius:3px;" , class:"bg-indigo-500" %>
       <%end%>
     </div>
   <% end %>
-
+  </div>
 </div>
