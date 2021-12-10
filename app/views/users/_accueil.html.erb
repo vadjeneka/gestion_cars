@@ -48,11 +48,10 @@
 				</div>
 				<div>
 					<p class="mb-2 text-sm font-medium text-gray-600">
-						Nombre de chauffeur disponible
-						<%#= link_to 'Nombre de chauffeur disponible', user_chauffeurs_path(current_user) %>
+						<%= link_to 'Nombre de chauffeur disponible', user_chauffeurs_path(current_user) %>
 					</p>
 					<p class="text-lg font-semibold text-gray-700">
-						<%=%>
+						<%= @current_user.chauffeurs.count%>
 					</p>
 				</div>
 			</div>

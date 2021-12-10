@@ -39,10 +39,6 @@
   <% if user.persisted? %>
     <%= form.submit 'Update', style:"text-decoration:none;color:#fff;width:40%; padding:10px 0px; margin-top:2%; background:#4B6DE7; border:none;" %>
   <%else %>
-    <%= form.submit 'S inscrire', style:"width:50%; margin:4% 0; padding:12px 0; border:none; background:#A45328; color:#FFFFFF;border-radius:3px;" %>
-    <div>
-      <span>Vous avez pas de compte?</span>
-      <%= link_to 'Log here', login_path, style:'text-decoration:none; color:#773203;' %>
-    </div>
+    <%= form.submit 'S inscrire', style:"width:50%; margin:4% 0; padding:12px 0; border:none; background:#000033; color:#FFFFFF;border-radius:3px;" %>
   <%end%>
 <% end %>

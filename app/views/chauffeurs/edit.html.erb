@@ -1,0 +1,23 @@
+<%= render partial:'header', locals:{chauffeur: @chauffeur}%>
+<main class="flex w-full h-screen">
+  <%= render partial:'aside', locals:{chauffeur: @chauffeur}  %>
+  <section class="py-1 bg-white-50 w-full">
+    <div class="w-full px-4 mx-auto mt-24 ">
+      <div style='width:85%; height:90%; text-align:center'>
+        <p style="width:100%; display:flex; justify-content:center; font-size:3rem;font-weight:bold">
+          Modifié une information
+        </p>
+        <p style="width:100%; display:flex; justify-content:center; font-size:1rem;">
+          Informations du chauffeur
+        </p>
+      </div>
+      <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 rounded ">
+
+        <%= render partial:'edit', locals:{chauffeur: @chauffeur, car: @car, current_user: @current_user} %>
+        
+      </div>
+    </div>
+
+    </section>
+</main>
+

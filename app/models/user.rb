@@ -12,4 +12,5 @@ class User < ApplicationRecord
   has_many :cars
   has_many :trajets
   has_many :depenses
+  has_many :chauffeurs
 end

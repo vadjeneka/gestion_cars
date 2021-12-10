@@ -5,6 +5,5 @@ class Chauffeur < ApplicationRecord
   validates :nom,
             :prenom,
             :car_id,
-            :numero,
-            :montant, presence: true
+            :numero,presence: true
 end
