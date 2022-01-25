@@ -21,7 +21,10 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'wkhtmltopdf-binary'
+gem 'wicked_pdf'
+gem 'bootstrap'
+gem 'prawn-qrcode'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -61,3 +64,7 @@ gem 'sidekiq'
 group :development, :test do
   gem 'rspec-rails'
 end
+
+gem "rqrcode", "~> 2.1"
+
+gem "chunky_png", "~> 1.4"

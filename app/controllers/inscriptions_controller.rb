@@ -1,25 +1,38 @@
 class InscriptionsController < ApplicationController
-  before_action :authenticate_user, except: %i[:index, :show]
-  before_action :set_inscription , only: [:show, :edit, :update, :destroy]
+  # before_action :set_inscription , only: [:show, :edit, :update, :destroy]
 
   def index
     @inscriptions = Inscription.all
   end
 
   def show
+    @inscription = Inscription.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.pdf do
+          render pdf: "Inscritpion no. #{@inscription.id}",
+          page_size: 'A4',
+          template: "inscriptions/show.html.erb",
+          layout: "pdf.html",
+          orientation: "Landscape",
+          lowquality: true,
+          zoom: 1,
+          dpi: 75
+      end
+    end
+    @qrcode = Inscription.new.generate_qr_code(@inscription)
   end
 
   def new
     @inscription = Inscription.new
-    @current_user = User.find(params[:user_id])
   end
 
   def create
     # raise params.inspect
     # @inscription = Inscription.new(inscription_params)
-    @inscription = current_user.inscriptions.build(inscription_params)
+    @inscription = Inscription.create(inscription_params)
     if @inscription.save
-      redirect_to user_inscriptions_path(@current_user), notice:'Inscription effectuée'
+      redirect_to inscriptions_path, notice:'Inscription effectuée'
     else
       flash[:error] = 'Inscription echouée'
       render 'new'
@@ -28,13 +41,12 @@ class InscriptionsController < ApplicationController
 
   def edit
     @inscription = Inscription.find(params[:id])
-    @current_user = User.find(params[:user_id])
   end
 
   def update
     @inscription = Inscription.find(params[:id])
     if @inscription.update(inscription_params)
-      redirect_to user_inscriptions_path(@current_user), notice:" Modification réussie "
+      redirect_to inscriptions_path, notice:" Modification réussie "
       
     else
       flash[:error] = " Modification echouée"
@@ -45,7 +57,7 @@ class InscriptionsController < ApplicationController
   def destroy
     @inscription = Inscription.find(params[:id])
     @inscription.destroy
-    redirect_to user_inscriptions_path(@current_user), notice: "Inscription Supprimée"
+    redirect_to inscriptions_path, notice: "Inscription Supprimée"
   end
 
   private 

@@ -1,12 +1,12 @@
 
-<%= render partial:'header', locals:{inscription: @inscription}%>
+<%#= render partial:'header', locals:{inscription: @inscription}%>
 
 <main class="flex w-full h-screen">
-  <%= render partial:'aside', locals:{inscription: @inscription}%>
+  <%#= render partial:'aside', locals:{inscription: @inscription}%>
 <section class="py-1 bg-blueGray-50 w-full">
   <div class="relative w-full px-4 max-w-full flex-grow flex-1 text-right mt-16">
     <button class="flex justify-center text-2xl bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none ml-96 mb-1 ease-linear transition-all duration-150" type="button">
-      <%= link_to 'Faire une Inscription', new_user_inscription_path(current_user)%>
+      <%= link_to 'Faire une Inscription', new_inscription_path%>
     </button>
   </div>
 <div class="w-full px-4 mx-auto mt-24">
@@ -15,9 +15,6 @@
       <div class="flex flex-wrap items-center">
         <div class="relative w-full px-4 max-w-full flex-grow flex-1">
           <h3 class="font-semibold text-base text-blueGray-700">Liste des Élèves inscrits</h3>
-        </div>
-        <div class="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
-          <button class="bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">IMPRIMER <i class="fas fa-print"></i></button>
         </div>
       </div>
     </div>
@@ -46,6 +43,9 @@
           </th>
           <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
             Mois
+          </th>
+          <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+            QrCode
           </th>
           <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
             Actions
@@ -83,16 +83,20 @@
               </td>
               <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                 <!-- <i class="fas fa-arrow-up text-emerald-500 mr-4"></i> -->
-                <a href="<%= user_inscription_path(@current_user, inscription) %>
+                <%= inscription.qr_code.attached? %>
+              </td>
+              <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                <!-- <i class="fas fa-arrow-up text-emerald-500 mr-4"></i> -->
+                <a href="<%= inscription_path(inscription.id) %>
                 ">
                   <i class="far fa-eye text-emerald-500 mr-4"></i> 
                 </a>
-                <a href="<%= edit_user_inscription_path(@current_user, inscription) %>"
+                <a href="<%#= edit_user_inscription_path(@current_user, inscription) %>"
                   >
                     <i class="fas fa-edit text-blue-500 mr-4"></i> 
                 </a>
 
-                <a href="<%= user_inscription_path(@current_user, inscription.id)%>", data-method="delete" data-confirm="Are you sure?">
+                <a href="<%= inscription_path(inscription.id)%>", data-method="delete" data-confirm="Are you sure?">
                     <i class="fas fa-trash-alt text-red-500"></i> 
                 </a>            
               </td>

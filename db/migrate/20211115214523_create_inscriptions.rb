@@ -8,8 +8,7 @@ class CreateInscriptions < ActiveRecord::Migration[6.1]
       t.integer :num_parent
       t.integer :montant
       t.string :mois
-      t.references :user, null: false, foreign_key: true, type: :uuid
-      # t.references :trajet, null: false, foreign_key: true, type: :uuid
+      t.string :destination
 
       t.timestamps
     end
