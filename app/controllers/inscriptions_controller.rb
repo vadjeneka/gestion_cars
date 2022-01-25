@@ -7,6 +7,20 @@ class InscriptionsController < ApplicationController
   end
 
   def show
+    # @inscription = Inscription.find(params[:id])
+    #   respond_to do |format|
+    #     format.html
+    #     format.pdf do
+    #         render pdf: "Inscription No. #{@inscription.id}",
+    #         page_size: 'A4',
+    #         template: "inscriptions/show.html.erb",
+    #         layout: "pdf.html",
+    #         orientation: "Landscape",
+    #         lowquality: true,
+    #         zoom: 1,
+    #         dpi: 75
+    #     end
+    # end
   end
 
   def new
@@ -56,6 +70,13 @@ class InscriptionsController < ApplicationController
 
   def inscription_params
     # raise params.inspect
-    params.require(:inscription).permit(:nom, :prenom, :classe, :matricule, :num_parent, :montant, :mois, :destination)
+    params.require(:inscription).permit(:nom, 
+                                        :prenom, 
+                                        :classe, 
+                                        :matricule, 
+                                        :num_parent, 
+                                        :montant, 
+                                        :mois, 
+                                        :destination )
   end
 end
